@@ -14,6 +14,12 @@ module Tracksapp
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+    # Keep the pre-Ruby 2.4 `to_time` behaviour Tracks has always used
+    # (convert to the system's local offset). Rails 8.0 re-applies this config
+    # value after the initializers run, so it must be set here rather than via
+    # ActiveSupport.to_time_preserves_timezone in an initializer.
+    config.active_support.to_time_preserves_timezone = false
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
