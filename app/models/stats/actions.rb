@@ -186,7 +186,7 @@ module Stats
       @max_actions = @actions_running_time_array.max
 
       # get percentage done cumulative
-      @cum_percent_done = convert_to_cumulative_array(@actions_running_time_array, @actions_running_time.count)
+      @cum_percent_done = convert_to_cumulative_array(@actions_running_time_array, @actions_running_time.size)
 
       time_labels = Array.new(@count) { |i| "#{i}-#{i + 1}" }
       time_labels[0] = "< 1"
